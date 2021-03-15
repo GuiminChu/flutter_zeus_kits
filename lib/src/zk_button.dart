@@ -8,15 +8,15 @@ class ZKTextButton extends StatelessWidget {
   final double fontSize;
   final Color titleColor;
   final Color color;
-  final double cornerRadius;
+  final double? cornerRadius;
   final bool enabled;
-  final Function onPressed;
+  final VoidCallback? onPressed;
 
   const ZKTextButton({
-    Key key,
-    this.width,
+    Key? key,
+    required this.width,
     this.height: 44.0,
-    this.title,
+    required this.title,
     this.fontSize: 16.0,
     this.titleColor: Colors.white,
     this.color: Colors.lightBlue,
@@ -35,7 +35,7 @@ class ZKTextButton extends StatelessWidget {
         defaultCornerRadius = height / 2;
       }
     } else {
-      defaultCornerRadius = cornerRadius;
+      defaultCornerRadius = cornerRadius!;
     }
 
     return SizedBox(
@@ -68,19 +68,19 @@ class ZKFilledButton extends StatelessWidget {
   final double width;
   final double height;
   final Color color;
-  final double cornerRadius;
+  final double? cornerRadius;
   final bool enabled;
   final Widget child;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   const ZKFilledButton({
-    Key key,
-    this.width,
+    Key? key,
+    required this.width,
     this.height: 44.0,
     this.color: Colors.lightBlue,
     this.cornerRadius,
     this.enabled: true,
-    this.child,
+    required this.child,
     this.onPressed,
   }) : super(key: key);
 
@@ -94,7 +94,7 @@ class ZKFilledButton extends StatelessWidget {
         defaultCornerRadius = height / 2;
       }
     } else {
-      defaultCornerRadius = cornerRadius;
+      defaultCornerRadius = cornerRadius!;
     }
 
     return SizedBox(
@@ -122,20 +122,20 @@ class ZKBorderButton extends StatelessWidget {
   final double height;
   final EdgeInsets margin;
   final Color borderColor;
-  final double borderRadius;
+  final double? borderRadius;
   final double borderWidth;
   final Widget child;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   const ZKBorderButton({
-    Key key,
-    this.width,
-    this.height,
+    Key? key,
+    required this.width,
+    required this.height,
     this.margin = EdgeInsets.zero,
     this.borderColor: const Color(0xFFF6AB00),
     this.borderWidth: 1.0,
     this.borderRadius,
-    this.child,
+    required this.child,
     this.onPressed,
   })  : assert(child != null),
         super(key: key);
@@ -150,7 +150,7 @@ class ZKBorderButton extends StatelessWidget {
         defaultBorderRadius = height / 2;
       }
     } else {
-      defaultBorderRadius = borderRadius;
+      defaultBorderRadius = borderRadius!;
     }
 
     return Container(
@@ -172,9 +172,7 @@ class ZKBorderButton extends StatelessWidget {
           ),
           borderRadius: BorderRadius.circular(defaultBorderRadius),
         ),
-        onPressed: () {
-          onPressed();
-        },
+        onPressed: onPressed,
       ),
     );
   }
@@ -184,17 +182,17 @@ class ZKGradientButton extends StatelessWidget {
   final double width;
   final double height;
   final String title;
-  final double fontSize;
+  final double? fontSize;
   final Color fontColor;
   final double borderRadius;
   final Gradient gradient;
-  final Function onPressed;
+  final VoidCallback? onPressed;
 
   const ZKGradientButton({
-    Key key,
-    this.width,
-    this.height,
-    this.title,
+    Key? key,
+    required this.width,
+    required this.height,
+    required this.title,
     this.fontSize,
     this.fontColor: Colors.white,
     this.gradient: const LinearGradient(

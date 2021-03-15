@@ -1,17 +1,7 @@
 extension ZKString on String {
-  /// isBlank
-  bool get isBlank {
-    return this == null || this.isEmpty;
-  }
-
-  /// isNotBlank
-  bool get isNotBlank {
-    return !isBlank;
-  }
-
   /// isDouble
   bool get isDouble {
-    if (this.isBlank) {
+    if (this.isEmpty) {
       return false;
     }
 
